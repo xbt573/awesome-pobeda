@@ -18,7 +18,7 @@ jobs:
           ruby-version: '3.4.1'
       - name: Generate README.md
         run: |
-          ruby service/program.rb -i service/input.json -t service/template.md -o README.md -a availability.json
+          ruby service/program.rb -i service/input.json -t service/template.md -a service/availability.json -o README.md 
           
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
