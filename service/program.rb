@@ -11,40 +11,18 @@ options = {
 
 OptionParser.new do |parser|
     parser.on('-i', '--input=FILE', 'Input file (JSON)')
+    parser.on('-a', '--availability=FILE', 'Availability file (JSON)')
     parser.on('-t', '--template=FILE', 'Template file (ERB)')
     parser.on('-o', '--output=FILE', 'Output file')
 end.parse!(into: options)
 
-[:input, :template].each do |option|
+[:input, :availability, :template].each do |option|
     fail "Missing required option: #{option}" unless options[option] != nil
     fail "File \"#{options[option]}\" doesn't exist or is directory" unless File.file?(options[option])
 end
 
 data = JSON.parse(File.read(options[:input]))
-
-availability = {}
-
-data.each do |category|
-    category["items"] = category["items"].sort.to_h
-
-    category["items"].each do |key, domains|
-        domains.each do |domain|
-            begin
-                Net::HTTP.get(URI("https://#{SimpleIDN.to_ascii(domain)}"))
-            rescue OpenSSL::SSL::SSLError
-                begin
-                    Net::HTTP.get(URI("http://#{SimpleIDN.to_ascii(domain)}"))
-                rescue
-                    availability[domain] = [false]
-                else
-                    availability[domain] = [true, "http"]
-                end
-            else
-                availability[domain] = [true, "https"]
-            end
-        end
-    end
-end
+availability = JSON.parse(File.read(options[:availability]))
 
 template = ERB.new(File.read(options[:template]), trim_mode: '-')
 
