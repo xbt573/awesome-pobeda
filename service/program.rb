@@ -1,7 +1,9 @@
 #!/usr/bin/env ruby
 require 'json'
+require 'net/http'
 require 'erb'
 require 'optparse'
+require_relative 'bundled/simpleidn'
 
 options = {
     output: "output"
@@ -19,6 +21,31 @@ end.parse!(into: options)
 end
 
 data = JSON.parse(File.read(options[:input]))
+
+availability = {}
+
+data.each do |category|
+    category["items"] = category["items"].sort.to_h
+
+    category["items"].each do |key, domains|
+        domains.each do |domain|
+            begin
+                Net::HTTP.get(URI("https://#{SimpleIDN.to_ascii(domain)}"))
+            rescue OpenSSL::SSL::SSLError
+                begin
+                    Net::HTTP.get(URI("http://#{SimpleIDN.to_ascii(domain)}"))
+                rescue
+                    availability[domain] = [false]
+                else
+                    availability[domain] = [true, "http"]
+                end
+            else
+                availability[domain] = [true, "https"]
+            end
+        end
+    end
+end
+
 template = ERB.new(File.read(options[:template]), trim_mode: '-')
 
 File.write options[:output], template.result
