@@ -1,6 +1,0 @@
-[submodule "service/simpleidn"]
-	path = service/simpleidn
-	url = https://github.com/mmriis/simpleidn
-[submodule "service/bundled/simpleidn"]
-	path = service/bundled/simpleidn
-	url = https://github.com/mmriis/simpleidn
