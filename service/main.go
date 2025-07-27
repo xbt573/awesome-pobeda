@@ -86,7 +86,7 @@ func main() {
 				local.Resolved = true
 				availability[url] = local // ugly hack
 
-				resp, err := http.Get("https://" + url)
+				resp, err := http.Get("http://" + url)
 				if err != nil {
 					continue // failed to get, Reachable == false
 				}
