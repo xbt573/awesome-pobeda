@@ -14,8 +14,10 @@ jobs:
         with:
           submodules: recursive
       - uses: actions/setup-go@v5
-      - run: go mod -C service download && go build -C service
+      - run: go mod download && go build
+        working-directory: service
       - name: Generate README.md
+        working-directory: service
         run: |
           service/service > README.md
           
