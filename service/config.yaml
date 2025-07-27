@@ -1,0 +1,77 @@
+categories:
+  - name: Языковая победа
+    id: language
+    items:
+      - name: Bash
+        items:
+          - башпобеда.рф
+      - name: C
+        items:
+          - сипобеда.рф
+      - name: C++
+        items:
+          - плюсыпобеда.рф
+      - name: Go
+        items:
+          - гопобеда.рф
+      - name: Java
+        items:
+          - жавапобеда.рф
+      - name: Kotlin
+        items:
+          - котлинпобеда.рф
+      - name: JavaScript
+        items:
+          - жспобеда.рф
+      - name: TypeScript
+        items:
+          - тспобеда.рф
+          - тайпскриптпобеда.рф
+      - name: Lua
+        items:
+          - луапобеда.рф
+      - name: Pascal
+        items:
+          - паскальпобеда.рф
+      - name: HTML
+        items:
+          - хтмлпобеда.рф
+      - name: Elixir
+        items:
+          - эликсирпобеда.рф
+      - name: Python
+        items:
+          - питонпобеда.рф
+      - name: Rust
+        items:
+          - растпобеда.рф
+      - name: Nix
+        items:
+          - растпобеда.рф
+      - name: Scheme
+        items:
+          - схемапобеда.рф
+      - name: V
+        items:
+          - випобеда.рф
+  - name: СВО
+    id: svo
+    items:
+      - name: svo.ru
+        items:
+          - svo.ru
+      - name: Магия по контракту
+        items:
+          - магияпоконтракту.рф
+      - name: свопобеда.рф
+        items:
+          - свопобеда.рф
+  - name: Остальное
+    id: other
+    items:
+      - name: STM32
+        items:
+          - стм32победа.рф
+      - name: ESP32
+        items:
+          - есп32победа.рф

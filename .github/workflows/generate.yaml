@@ -1,0 +1,26 @@
+name: Generate README.md
+on:
+  push:
+    paths:
+      - 'service/*'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  generate-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - uses: actions/setup-go@v5
+      - run: go mod -C service download && go build -C service
+      - name: Generate README.md
+        run: |
+          service/service > README.md
+          
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add README.md
+          git commit -m "Update from $(git rev-parse --short=8 HEAD)" || :
+          git push || :
