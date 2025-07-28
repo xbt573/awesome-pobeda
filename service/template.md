@@ -27,11 +27,20 @@
             {{- else if not $availability.Successful }}
                 {{- $status = "(неуспешный статус код)" }}
             {{- end}}
-- {{$domain.Name}} — [{{index $domain.Items 0}}](https://{{index $domain.Items 0}}) {{$status}}
+- {{$domain.Name}} — [{{$url}}](https://{{$url}}) {{$status}}
         {{- else if gt (len $domain.Items) 1 }}
 - {{$domain.Name}}:
             {{- range $url := $domain.Items }}
-    - [{{index $domain.Items 0}}](https://{{index $domain.Items 0}})
+                {{- $availability := index $config.Availability $url }}
+                {{- $status := "" }}
+                {{- if not $availability.Resolved }}
+                    {{- $status = "(домен недоступен)" }}
+                {{- else if not $availability.Reachable }}
+                    {{- $status = "(сервер недоступен)" }}
+                {{- else if not $availability.Successful }}
+                    {{- $status = "(неуспешный статус код)" }}
+                {{- end}}
+    - [{{$url}}](https://{{$url}}) {{$status}}
             {{- end }}
         {{- end }}
     {{- end }}
