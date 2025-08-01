@@ -54,6 +54,15 @@ categories:
       - name: V
         items:
           - випобеда.рф
+  - name: Linux Победа
+    id: linux
+    items:
+      - name: Arch Linux
+        items:
+          - арчпобеда.рф
+      - name: Gentoo
+        items:
+          - гентупобеда.рф
   - name: СВО
     id: svo
     items:
@@ -75,3 +84,6 @@ categories:
       - name: ESP32
         items:
           - есп32победа.рф
+      - name: МТУСИ
+        items:
+          - мтусипобеда.рф
