@@ -31,7 +31,7 @@
         {{- else if gt (len $domain.Items) 1 }}
 - {{$domain.Name}}:
             {{- range $url := $domain.Items }}
-    - [{{index $domain.Items 0}}](https://{{index $domain.Items 0}})
+    - [{{$url}}](https://{{$url}})
             {{- end }}
         {{- end }}
     {{- end }}
