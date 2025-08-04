@@ -54,6 +54,9 @@ categories:
       - name: V
         items:
           - випобеда.рф
+      - name: Swift
+        items:
+          - свифтпобеда.рф
   - name: Linux Победа
     id: linux
     items:
@@ -63,6 +66,9 @@ categories:
       - name: Gentoo
         items:
           - гентупобеда.рф
+      - name: Yocto
+        items:
+          - йоктопобеда.рф
   - name: СВО
     id: svo
     items:
@@ -87,3 +93,6 @@ categories:
       - name: МТУСИ
         items:
           - мтусипобеда.рф
+      - name: Risc-V
+        items:
+          - рисквпобеда.рф
