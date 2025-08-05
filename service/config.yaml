@@ -55,6 +55,9 @@ categories:
       - name: V
         items:
           - domain: випобеда.рф
+      - name: Swift
+        items:
+          - domain: свифтпобеда.рф
   - name: Линуксовая победа
     id: linux
     items:
@@ -89,6 +92,9 @@ categories:
       - name: ESP32
         items:
           - domain: есп32победа.рф
+      - name: RISC-V
+        items:
+          - domain: рисквпобеда.рф
       - name: МТУСИ
         items:
           - domain: мтусипобеда.рф
