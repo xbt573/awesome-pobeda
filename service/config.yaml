@@ -55,15 +55,18 @@ categories:
       - name: V
         items:
           - domain: випобеда.рф
-  - name: Linux Победа
+  - name: Линуксовая победа
     id: linux
     items:
       - name: Arch Linux
         items:
           - domain: арчпобеда.рф
-      - name: Gentoo
+      - name: Gentoo Linux
         items:
           - domain: гентупобеда.рф
+      - name: Yocto Linux
+        items:
+          - domain: йоктопобеда.рф
   - name: СВО
     id: svo
     items:

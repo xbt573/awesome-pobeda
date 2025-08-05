@@ -80,7 +80,7 @@ func GenerateWebsite(website Website, availability map[string]Availability) stri
 	if len(website.Items) == 1 {
 		builder.WriteString(
 			fmt.Sprintf(
-				"- %v [%v](http://%v)",
+				"- %v — [%v](http://%v)",
 				website.Name,
 				website.Items[0].Domain, website.Items[0].Domain,
 			),
