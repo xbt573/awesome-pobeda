@@ -1,4 +1,11 @@
-{{- $config := . -}}
+{{- define "status" }}
+    {{- if not .Resolved }}(домен не резолвится) {{ end }}
+    {{- if and .Resolved (not .Reachable) }}(сервер недоступен) {{ end }}
+    {{- if and .Resolved .Reachable (not .Successful) }}(неуспешный статус код) {{ end }}
+
+    {{- if .Comment }}{{ .Comment }}{{ end }}
+{{- end -}}
+
 # <a name="start"></a>awesome-победа.рф
 
 Список победных сайтов на просторах рунета.
@@ -6,33 +13,22 @@
 ---
 
 ## <a name="toc"></a>Содержание
-{{- range $category := .Config.Categories }}
-- [{{$category.Name}}](#{{$category.ID}})
+{{- range .Config.Categories }}
+- [{{ .Name }}](#{{ .ID }})
 {{- end }}
 
 ---
-
-{{- range $category := .Config.Categories }}
-## <a name="{{$category.ID}}"></a>{{$category.Name}}
+{{ range .Config.Categories }}
+## <a name="{{ .ID }}"></a>{{ .Name }}
 **[`^        назад        ^`](#start)**
-    {{- range $domain := $category.Items }}
-        {{- if eq (len $domain.Items) 1 }}
-            {{- $url := index $domain.Items 0 }}
-            {{- $availability := index $config.Availability $url }}
-            {{- $status := "" }}
-            {{- if not $availability.Resolved }}
-                {{- $status = "(домен недоступен)" }}
-            {{- else if not $availability.Reachable }}
-                {{- $status = "(сервер недоступен)" }}
-            {{- else if not $availability.Successful }}
-                {{- $status = "(неуспешный статус код)" }}
-            {{- end}}
-- {{$domain.Name}} — [{{index $domain.Items 0}}](https://{{index $domain.Items 0}}) {{$status}}
-        {{- else if gt (len $domain.Items) 1 }}
-- {{$domain.Name}}:
-            {{- range $url := $domain.Items }}
-    - [{{$url}}](https://{{$url}})
+    {{- range .Items}}
+        {{- if eq (len .Items) 1 }}
+- {{ .Name }} — [{{ (index .Items 0).Domain }}](http://{{ (index .Items 0).Domain }}) {{ template "status" (index $.Availability (index .Items 0).Domain) }}
+        {{- else }}
+- {{ .Name }}:
+            {{- range .Items}}
+    - [{{ . }}](http://{{ . }}) {{ template "status" (index $.Availability .) }}
             {{- end }}
         {{- end }}
     {{- end }}
-{{ end }}
+{{ end -}}

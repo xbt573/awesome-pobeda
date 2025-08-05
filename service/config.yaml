@@ -4,86 +4,88 @@ categories:
     items:
       - name: Bash
         items:
-          - башпобеда.рф
+          - domain: башпобеда.рф
       - name: C
         items:
-          - сипобеда.рф
+          - domain: сипобеда.рф
       - name: C++
         items:
-          - плюсыпобеда.рф
+          - domain: плюсыпобеда.рф
       - name: Go
         items:
-          - гопобеда.рф
+          - domain: гопобеда.рф
+            comment: припаркованный домен
       - name: Java
         items:
-          - жавапобеда.рф
+          - domain: жавапобеда.рф
       - name: Kotlin
         items:
-          - котлинпобеда.рф
+          - domain: котлинпобеда.рф
       - name: JavaScript
         items:
-          - жспобеда.рф
+          - domain: жспобеда.рф
       - name: TypeScript
         items:
-          - тспобеда.рф
-          - тайпскриптпобеда.рф
+          - domain: тспобеда.рф
+          - domain: тайпскриптпобеда.рф
       - name: Lua
         items:
-          - луапобеда.рф
+          - domain: луапобеда.рф
       - name: Pascal
         items:
-          - паскальпобеда.рф
+          - domain: паскальпобеда.рф
       - name: HTML
         items:
-          - хтмлпобеда.рф
+          - domain: хтмлпобеда.рф
       - name: Elixir
         items:
-          - эликсирпобеда.рф
+          - domain: эликсирпобеда.рф
       - name: Python
         items:
-          - питонпобеда.рф
+          - domain: питонпобеда.рф
       - name: Rust
         items:
-          - растпобеда.рф
+          - domain: растпобеда.рф
       - name: Nix
         items:
-          - никспобеда.рф
+          - domain: никспобеда.рф
       - name: Scheme
         items:
-          - схемапобеда.рф
+          - domain: схемапобеда.рф
       - name: V
         items:
-          - випобеда.рф
+          - domain: випобеда.рф
   - name: Linux Победа
     id: linux
     items:
       - name: Arch Linux
         items:
-          - арчпобеда.рф
+          - domain: арчпобеда.рф
       - name: Gentoo
         items:
-          - гентупобеда.рф
+          - domain: гентупобеда.рф
   - name: СВО
     id: svo
     items:
       - name: svo.ru
         items:
-          - svo.ru
+          - domain: svo.ru
+            comment: скоро открытие
       - name: Магия по контракту
         items:
-          - магияпоконтракту.рф
+          - domain: магияпоконтракту.рф
       - name: свопобеда.рф
         items:
-          - свопобеда.рф
+          - domain: свопобеда.рф
   - name: Остальное
     id: other
     items:
       - name: STM32
         items:
-          - стм32победа.рф
+          - domain: стм32победа.рф
       - name: ESP32
         items:
-          - есп32победа.рф
+          - domain: есп32победа.рф
       - name: МТУСИ
         items:
-          - мтусипобеда.рф
+          - domain: мтусипобеда.рф

@@ -1,50 +1,28 @@
-// это ужасный код, лучше не смотрите
 package main
 
 import (
-	"html/template"
+	"fmt"
 	"net"
 	"net/http"
 	"os"
+	"sync"
 	"unicode"
 
 	"github.com/goccy/go-yaml"
+	"github.com/xbt573/awesome-pobeda/service/generate"
 	"golang.org/x/net/idna"
 )
 
 type Config struct {
-	Categories []Category `yaml:"categories"`
-}
-
-type Category struct {
-	Name  string   `yaml:"name"`
-	ID    string   `yaml:"id"`
-	Items []Domain `yaml:"items"`
-}
-
-type Domain struct {
-	Name  string   `yaml:"name"`
-	Items []string `yaml:"items"`
-}
-
-type Availability struct {
-	Resolved   bool
-	Reachable  bool
-	Successful bool
-}
-
-type Template struct {
-	Config       Config
-	Availability map[string]Availability
+	Categories []generate.Category `yaml:"categories"`
 }
 
 func isASCII(s string) bool {
-	for x := range len(s) {
-		if s[x] > unicode.MaxASCII {
+	for _, c := range s {
+		if c > unicode.MaxASCII {
 			return false
 		}
 	}
-
 	return true
 }
 
@@ -53,72 +31,67 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	defer f.Close()
 
 	var config Config
-
-	if err := yaml.NewDecoder(f).Decode(&config); err != nil {
+	if err = yaml.NewDecoder(f).Decode(&config); err != nil {
 		panic(err)
 	}
 
-	availability := map[string]Availability{}
+	availability := map[string]generate.Availability{}
+
+	wg := sync.WaitGroup{}
+	mux := sync.Mutex{}
 
 	for _, category := range config.Categories {
-		for _, domain := range category.Items {
-			for _, url := range domain.Items {
-				local := Availability{}
+		for _, website := range category.Items {
+			for _, domain := range website.Items {
+				wg.Add(1)
+				go func() {
+					defer wg.Done()
 
-				ascii := url
+					status := generate.Availability{}
 
-				if !isASCII(ascii) { // BRUH
-					conv, err := idna.ToASCII(ascii)
-					if err != nil {
-						panic(err)
+					defer func() {
+						mux.Lock()
+						defer mux.Unlock()
+
+						availability[domain.Domain] = status
+						fmt.Fprintf(os.Stderr, "%v: %#+v\n", domain.Domain, status)
+					}()
+
+					ascii := domain.Domain
+					if !isASCII(ascii) {
+						conv, err := idna.Lookup.ToASCII(ascii)
+						if err != nil {
+							panic(err)
+						}
+
+						ascii = conv
 					}
-					ascii = conv
-				}
 
-				_, err := net.LookupIP(ascii)
-				if err != nil {
-					continue // failed to lookup, Resolved == false
-				}
+					_, err := net.LookupIP(ascii)
+					if err != nil {
+						return
+					}
+					status.Resolved = true
 
-				local.Resolved = true
-				availability[url] = local // ugly hack
+					resp, err := http.Get("http://" + domain.Domain)
+					if err != nil {
+						return
+					}
+					resp.Body.Close()
+					status.Reachable = true
 
-				resp, err := http.Get("http://" + url)
-				if err != nil {
-					continue // failed to get, Reachable == false
-				}
-				resp.Body.Close()
-
-				local.Reachable = true
-				availability[url] = local
-
-				if resp.StatusCode == 200 { // Successful == false unless
-					local.Successful = true
-					availability[url] = local
-				}
+					if resp.StatusCode != 200 {
+						return
+					}
+					status.Successful = true
+				}()
 			}
 		}
 	}
 
-	input := Template{
-		Config:       config,
-		Availability: availability,
-	}
+	wg.Wait()
 
-	tmplfile, err := os.ReadFile("template.md")
-	if err != nil {
-		panic(err)
-	}
-
-	tmpl, err := template.New("generate").Parse(string(tmplfile))
-	if err != nil {
-		panic(err)
-	}
-
-	if err = tmpl.Execute(os.Stdout, input); err != nil {
-		panic(err)
-	}
+	fmt.Println(generate.GeneratePage(config.Categories, availability))
 }
