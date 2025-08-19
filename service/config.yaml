@@ -83,9 +83,6 @@ categories:
       - name: Магия по контракту
         items:
           - domain: магияпоконтракту.рф
-      - name: свопобеда.рф
-        items:
-          - domain: свопобеда.рф
   - name: Остальное
     id: other
     items:
