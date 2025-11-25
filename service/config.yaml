@@ -14,7 +14,6 @@ categories:
       - name: Go
         items:
           - domain: гопобеда.рф
-            comment: припаркованный домен
       - name: Java
         items:
           - domain: жавапобеда.рф
@@ -58,6 +57,9 @@ categories:
       - name: Swift
         items:
           - domain: свифтпобеда.рф
+      - name: Haskell
+        items:
+          - domain: хаскеллпобеда.рф
   - name: Линуксовая победа
     id: linux
     items:
@@ -98,3 +100,22 @@ categories:
       - name: МТУСИ
         items:
           - domain: мтусипобеда.рф
+      - name: Окабефон (что)
+        items:
+          - domain: окабефонпобеда.рф
+      - name: Valorant
+        items:
+          - domain: валорантпобеда.рф
+      - name: MAX
+        items:
+          - domain: макспобеда.рф
+            comment: работает даже на xbt573/awesome-pobeda
+  - name: Поражения
+    id: loses
+    items:
+      - name: Rust
+        items:
+          - domain: растпоражение.рф
+      - name: Go
+        items:
+          - domain: гопоражение.рф
