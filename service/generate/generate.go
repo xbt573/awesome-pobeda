@@ -41,6 +41,8 @@ func GeneratePage(categories []Category, availability map[string]Availability) s
 		builder.WriteString("\n\n")
 	}
 
+	builder.WriteString("По всем вопросам писать https://t.me/xbt573")
+
 	return strings.TrimSpace(builder.String())
 }
 
