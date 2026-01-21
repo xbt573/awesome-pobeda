@@ -7,29 +7,25 @@ categories:
           - domain: башпобеда.рф
       - name: C
         items:
-          - domain: сипобеда.рф
-      - name: C++
-        items:
-          - domain: плюсыпобеда.рф
+        - domain: сипобеда.рф
+          comment: в процессе восстановления 
       - name: Go
         items:
           - domain: гопобеда.рф
       - name: Java
         items:
           - domain: жавапобеда.рф
-      - name: Kotlin
-        items:
-          - domain: котлинпобеда.рф
+            comment: в процессе восстановления 
       - name: JavaScript
         items:
           - domain: жспобеда.рф
       - name: TypeScript
         items:
-          - domain: тспобеда.рф
           - domain: тайпскриптпобеда.рф
       - name: Lua
         items:
           - domain: луапобеда.рф
+            comment: в процессе восстановления 
       - name: Pascal
         items:
           - domain: паскальпобеда.рф
@@ -39,24 +35,21 @@ categories:
       - name: Elixir
         items:
           - domain: эликсирпобеда.рф
+            comment: в процессе восстановления 
       - name: Python
         items:
           - domain: питонпобеда.рф
       - name: Rust
         items:
           - domain: растпобеда.рф
-      - name: Nix
-        items:
-          - domain: никспобеда.рф
-      - name: Scheme
-        items:
-          - domain: схемапобеда.рф
+            comment: временно не работает 
       - name: V
         items:
           - domain: випобеда.рф
       - name: Swift
         items:
           - domain: свифтпобеда.рф
+            comment: в процессе восстановления
       - name: Haskell
         items:
           - domain: хаскеллпобеда.рф
@@ -75,37 +68,26 @@ categories:
       - name: Yocto Linux
         items:
           - domain: йоктопобеда.рф
-  - name: СВО
-    id: svo
-    items:
-      - name: svo.ru
-        items:
-          - domain: svo.ru
-            comment: скоро открытие
-      - name: Магия по контракту
-        items:
-          - domain: магияпоконтракту.рф
+            comment: в процессе восстановления 
+#  - name: СВО
+#    id: svo
+#    items:
   - name: Остальное
     id: other
     items:
-      - name: STM32
-        items:
-          - domain: стм32победа.рф
       - name: ESP32
         items:
           - domain: есп32победа.рф
       - name: RISC-V
         items:
           - domain: рисквпобеда.рф
+            comment: в процессе восстановления 
       - name: МТУСИ
         items:
           - domain: мтусипобеда.рф
       - name: Окабефон (что)
         items:
           - domain: окабефонпобеда.рф
-      - name: Valorant
-        items:
-          - domain: валорантпобеда.рф
       - name: MAX
         items:
           - domain: макспобеда.рф
@@ -119,3 +101,38 @@ categories:
       - name: Go
         items:
           - domain: гопоражение.рф
+  - name: Кладбище побед
+    id: graveyard
+    items:
+      - name: C++
+        items:
+          - domain: плюсыпобеда.рф
+            comment: не резолвится
+      - name: Kotlin
+        items:
+          - domain: котлинпобеда.рф
+            comment: не резолвится
+      - name: Nix
+        items:
+          - domain: никспобеда.рф
+            comment: домен не резолвится
+      - name: Scheme
+        items:
+          - domain: схемапобеда.рф
+            comment: более не поддерживается
+      - name: svo.ru
+        items:
+          - domain: svo.ru
+            comment: не резолвится
+      - name: Магия по контракту
+        items:
+          - domain: магияпоконтракту.рф
+            comment: 127.0.0.1
+      - name: STM32
+        items:
+          - domain: стм32победа.рф
+            comment: домен закончился
+      - name: Valorant
+        items:
+          - domain: валорантпобеда.рф
+            comment: какая нахуй рукодельница?
