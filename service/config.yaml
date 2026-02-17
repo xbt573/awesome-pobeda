@@ -5,10 +5,6 @@ categories:
       - name: Bash
         items:
           - domain: башпобеда.рф
-      - name: C
-        items:
-        - domain: сипобеда.рф
-          comment: в процессе восстановления 
       - name: Go
         items:
           - domain: гопобеда.рф
@@ -44,7 +40,6 @@ categories:
       - name: Swift
         items:
           - domain: свифтпобеда.рф
-            comment: в процессе восстановления
       - name: Haskell
         items:
           - domain: хаскеллпобеда.рф
@@ -63,7 +58,6 @@ categories:
       - name: Yocto Linux
         items:
           - domain: йоктопобеда.рф
-            comment: в процессе восстановления 
 #  - name: СВО
 #    id: svo
 #    items:
@@ -76,10 +70,6 @@ categories:
       - name: ESP32
         items:
           - domain: есп32победа.рф
-      - name: RISC-V
-        items:
-          - domain: рисквпобеда.рф
-            comment: в процессе восстановления 
       - name: МТУСИ
         items:
           - domain: мтусипобеда.рф
@@ -102,6 +92,10 @@ categories:
   - name: Кладбище побед
     id: graveyard
     items:
+      - name: C
+        items:
+        - domain: сипобеда.рф
+          comment: исходный код утерян 
       - name: C++
         items:
           - domain: плюсыпобеда.рф
@@ -109,7 +103,7 @@ categories:
       - name: Java
         items:
           - domain: жавапобеда.рф
-            comment: в процессе восстановления
+            comment: не резолвится 
       - name: Kotlin
         items:
           - domain: котлинпобеда.рф
@@ -138,3 +132,6 @@ categories:
         items:
           - domain: валорантпобеда.рф
             comment: какая нахуй рукодельница?
+      - name: RISC-V
+        items:
+          - domain: рисквпобеда.рф
