@@ -30,7 +30,7 @@ type Availability struct {
 func GeneratePage(categories []Category, availability map[string]Availability) string {
 	builder := strings.Builder{}
 
-	builder.WriteString("# <a name=\"start\"></a>awesome-победа.рф\n\nСписок победных сайтов на просторах рунета.")
+	builder.WriteString("# <a name=\"start\"></a>awesome-победа.рф (<a href=\"https://победапобеда.рф\">победапобеда.рф</a>)\n\nСписок победных сайтов на просторах рунета.")
 	builder.WriteString("\n\n---\n\n")
 
 	builder.WriteString(GenerateTOC(categories))
@@ -41,7 +41,7 @@ func GeneratePage(categories []Category, availability map[string]Availability) s
 		builder.WriteString("\n\n")
 	}
 
-	builder.WriteString("По всем вопросам писать https://t.me/xbt573")
+	builder.WriteString("По всем вопросам писать [@xbt573](https://t.me/xbt573)")
 
 	return strings.TrimSpace(builder.String())
 }
