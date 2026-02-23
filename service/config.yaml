@@ -73,6 +73,9 @@ categories:
       - name: МТУСИ
         items:
           - domain: мтусипобеда.рф
+      - name: ИТМО
+        items:
+          - domain: итмопобеда.рф
       - name: Окабефон (что)
         items:
           - domain: окабефонпобеда.рф
