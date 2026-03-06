@@ -37,6 +37,9 @@ categories:
       - name: V
         items:
           - domain: випобеда.рф
+      - name: Scheme
+        items:
+          - domain: схемапобеда.рф
       - name: Swift
         items:
           - domain: свифтпобеда.рф
@@ -64,6 +67,9 @@ categories:
   - name: Остальное
     id: other
     items:
+      - name: Конки / Konqi
+        items:
+          - domain: конкипобеда.рф
       - name: Beget
         items:
           - domain: бегетпобеда.рф
@@ -119,10 +125,6 @@ categories:
         items:
           - domain: никспобеда.рф
             comment: домен не резолвится
-      - name: Scheme
-        items:
-          - domain: схемапобеда.рф
-            comment: более не поддерживается
       - name: svo.ru
         items:
           - domain: svo.ru
