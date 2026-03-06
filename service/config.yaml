@@ -67,6 +67,10 @@ categories:
       - name: Beget
         items:
           - domain: бегетпобеда.рф
+      - name: Navidrome
+        items:
+          - domain: навидромпобеда.рф
+            comment: "данные: `user / password`, работает с переменной доступностью"
       - name: ESP32
         items:
           - domain: есп32победа.рф
