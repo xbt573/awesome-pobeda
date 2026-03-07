@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>СТМ32 Победа</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: sans-serif;
+            color: white;
+            background-color: hsl(0, 100%, 50%);
+            animation: backgroundColorChange 20s linear infinite;
+        }
+
+        @keyframes backgroundColorChange {
+            0% { background-color: #ff69b4; }
+            20% { background-color: #00ffff; }
+            40% { background-color: #ffd700; }
+            60% { background-color: #00ff00; }
+            80% { background-color: #ffa500; }
+            100% { background-color: #ff69b4; }
+        }
+
+        #victoryText {
+            font-size: 3vw; 
+            color: #333;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        #subText {
+            font-size: 1.5vw;
+            color: #ffffff;
+            text-align: left;
+            line-height: 1.4;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 5px;
+            max-width: 80%; 
+            box-sizing: border-box; 
+        }
+
+        .centered-line {
+            text-align: center;
+            margin-bottom: 2px;
+            font-size: 2vw; 
+        }
+
+        #subText img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 10px auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1 id="victoryText"></h1>
+    <div id="subText">
+        <div class="centered-line">2025 ЭТО ОЧЕРЕДНОЙ ГОД СТМ32 ПОБЕДЫ</div><br>
+        Почему 2025 это очередной год стм32 победы?<br>
+        1. В 2025 будет выпущена первая стм32 с wifi<br>
+        2. STM32 ARM ARCHITECTURE IS BAZINGLY FAST THAN ARDUINO BULLSHIT<br>
+        3. Очередная стм32 победа<br>
+        <img src="gif1.gif">
+    </div>
+    <script>
+        function calculateYearsSince(startDate) {
+            const now = new Date();
+            const diff = now - startDate;
+            const millisecondsInYear = 365.25 * 24 * 60 * 60 * 1000;
+            return diff / millisecondsInYear;
+        }
+
+        function updateVictoryText() {
+            const startDate = new Date('2007-06-01T00:00:00Z');
+            const years = calculateYearsSince(startDate);
+            const yearsFormatted = years.toFixed(9);
+            document.getElementById('victoryText').textContent = `СТМ32 ПОБЕДА УЖЕ ${yearsFormatted} ЛЕТ`;
+        }
+
+        setInterval(updateVictoryText, 10); 
+
+        updateVictoryText();
+        /*mmserty*/
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Гойда (Zа Наших Девочек)</title>
+<style>
+body { margin: 0; overflow: hidden; } 
+canvas { display: block; } 
+.small-image {
+  position: absolute;
+  pointer-events: none; /* Prevents images from interfering with clicks */
+}
+</style>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<script>
+const cubism2Model = "model.json";
+const backgroundImage = "background.jpg";
+const soundUrl = "hymn.mp3";
+let model2;
+let audioCtx;
+let audio;
+const imageUrls = ["z.png"];
+let smallImages = [];
+(async function main() {
+  try {
+    await loadScript("https://cubism.live2d.com/sdk-web/cubismcore/live2dcubismcore.min.js");
+    await loadScript("https://cdn.jsdelivr.net/gh/dylanNew/live2d/webgl/Live2D/lib/live2d.min.js");
+    await loadScript("https://cdn.jsdelivr.net/npm/pixi.js@6.5.2/dist/browser/pixi.min.js");
+    await loadScript("https://cdn.jsdelivr.net/npm/pixi-live2d-display/dist/index.min.js");
+
+
+    const app = new PIXI.Application({
+      view: document.getElementById("canvas"),
+      autoStart: true,
+      resizeTo: window
+    });
+
+    function centerModel() {
+      model2.x = app.screen.width / 2 - model2.width / 2;
+      model2.y = app.screen.height / 2 - model2.height / 3;
+    }
+
+    function centerBackground() {
+      background.width = app.screen.width;
+      background.height = app.screen.height;
+      background.x = 0; 
+      background.y = 0; 
+    }
+
+    const background = await PIXI.Sprite.from(backgroundImage);
+    app.stage.addChild(background);
+
+    model2 = await PIXI.live2d.Live2DModel.from(cubism2Model);
+    app.stage.addChild(model2);
+    model2.scale.set(0.4);
+
+    model2.interactive = true;
+
+    model2.on('mouseover', () => {
+        document.body.style.cursor = 'pointer';
+    });
+    model2.on('mouseout', () => {
+        document.body.style.cursor = 'default';
+    });
+
+    model2.on('pointerdown', async () => {
+      await initAudioContext(soundUrl); 
+	model2.motion('motion', 3);
+	model2.expression(2);
+	playSound(audioCtx, audio);
+	createAndAnimateSmallImages();
+    });
+    centerModel();
+    centerBackground();
+    window.addEventListener('resize', () => {
+      app.renderer.resize(window.innerWidth, window.innerHeight);
+      centerModel();
+      centerBackground();
+    });
+
+
+  } catch (error) {
+    console.error("Error loading resources or initializing:", error);
+  }
+})();
+
+
+
+async function loadScript(url) {
+  return new Promise((resolve, reject) => {
+    const script = document.createElement('script');
+    script.src = url;
+    script.onload = resolve;
+    script.onerror = reject;
+    document.head.appendChild(script);
+  });
+}
+
+async function initAudioContext(url) {
+  try {
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    audio = await loadAudio(url);
+  } catch (error) {
+    console.error("Error initializing audio context:", error);
+  }
+}
+
+async function loadAudio(url) {
+  return new Promise((resolve, reject) => {
+    const audioElement = new Audio(url);
+    audioElement.addEventListener('canplaythrough', () => resolve(audioElement));
+    audioElement.addEventListener('error', reject);
+    audioElement.load();
+  });
+}
+
+function playSound(audioCtx, audioElement) {
+    if (audioCtx && audioElement) {
+        const source = audioCtx.createMediaElementSource(audioElement);
+        source.connect(audioCtx.destination);
+        audioElement.play().catch(error => console.error("Error playing sound:", error));
+    } else {
+        console.warn("Audio context or audio element not ready.");
+    }
+}
+
+function createAndAnimateSmallImages() {
+  const numImages = 120; // 10-15 images
+
+  for (let i = 0; i < numImages; i++) {
+    const imageUrl = imageUrls[0];
+    const img = new Image();
+    img.src = imageUrl;
+    img.onload = () => {
+      const size = Math.random() * 30 + 10; // Size between 10 and 40 pixels
+      const x = Math.random() * window.innerWidth;
+      const y = Math.random() * window.innerHeight;
+      const dx = (Math.random() - 0.5) * 2; // Random horizontal speed
+      const dy = (Math.random() - 0.5) * 2; // Random vertical speed
+
+      const imgElement = document.createElement('img');
+      imgElement.classList.add('small-image');
+      imgElement.src = imageUrl;
+      imgElement.style.width = size + 'px';
+      imgElement.style.height = size + 'px';
+      imgElement.style.left = x + 'px';
+      imgElement.style.top = y + 'px';
+      document.body.appendChild(imgElement);
+
+      animateImage(imgElement, dx, dy);
+    };
+  }
+}
+
+function animateImage(img, dx, dy) {
+  let x = parseInt(img.style.left);
+  let y = parseInt(img.style.top);
+
+  function animate() {
+    x += dx;
+    y += dy;
+
+    img.style.left = x + 'px';
+    img.style.top = y + 'px';
+
+    if (x < -50 || x > window.innerWidth + 50 || y < -50 || y > window.innerHeight + 50) {
+      img.remove();
+      return; // Remove image if it goes off-screen
+    }
+
+    requestAnimationFrame(animate);
+  }
+  requestAnimationFrame(animate);
+}
+
+</script>
+</body>
+</html>
+

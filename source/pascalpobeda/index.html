@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ПАСКАЛЬ ПОБЕДА</title>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/ekmas/cs16.css@main/css/cs16.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tiny5&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Tiny5', sans-serif;
+      font-size: 18px;
+      line-height: 1.1;
+      -webkit-font-smoothing: none;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 10px;
+      margin-bottom: 10px;
+      font-family: 'Tiny5', sans-serif;
+    }
+    .unholy-gif {
+      transition: all 0.5s ease; /* Smooth movement */
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      width: 250px;
+      height: auto;
+      z-index: 1000;
+    }
+    #music-button {
+        position: absolute;
+        bottom: 10px; /* Adjust as needed */
+        right: 10px; /* Adjust as needed */
+    z-index: 10; /* To be on top of the image */
+  width: 250px;
+  height: 100px;
+    }
+
+</style>
+</head>
+
+
+<center>
+    <h2 style="color:#d62d2d";>АХТУНГ! ВЫ НЕ ИСПОЛЬЗУЕТЕ <i><a href='https://isp.netscape.com/'>NETSCAPE</a></i>! СТРАНИЦА МОЖЕТ ОТОБРАЖАТЬСЯ НЕКОРРЕКТНО</h2>
+    <h1 id="year-title"></h1>
+    <h3>Почему <span id="year-number"></span> это очередной год паскаль победы?</h3>
+    <ul>
+      <li>1. Паскаль летал в космос</li>
+      <li>2. Лучше перфокарт</li>
+      <li>3. 10 вакансий на hh.ru</li>
+      <li>4. Деды программировали</li>
+    </ul>
+    <h2>ПАСКАЛЬ ПОБЕДА УЖЕ <span id="pascal-age"></span> ЛЕТ</h2>
+    <button class="cs-btn" id="music-button">Музыка</button>
+    <img src="abc.png" alt="паскальпобеда">
+    <img class="unholy-gif" src="https://i.pinimg.com/originals/de/3a/13/de3a133652db21e7295078c499f049dc.gif" alt="unholy-gif">
+    <img class="unholy-gif" src="https://i.pinimg.com/originals/de/3a/13/de3a133652db21e7295078c499f049dc.gif" alt="unholy-gif">
+    <img class="unholy-gif" src="https://i.pinimg.com/originals/de/3a/13/de3a133652db21e7295078c499f049dc.gif" alt="unholy-gif">
+    <img class="unholy-gif" src="https://i.pinimg.com/originals/de/3a/13/de3a133652db21e7295078c499f049dc.gif" alt="unholy-gif">
+    <img class="unholy-gif" src="https://i.pinimg.com/originals/de/3a/13/de3a133652db21e7295078c499f049dc.gif" alt="unholy-gif">
+  <audio id="audio" src="mus.mp3"></audio>
+</center>
+
+<script>
+  function updatePascalInfo() {
+    const currentYear = new Date().getFullYear();
+    const startYear = 1970;
+    const pascalAge = currentYear - startYear;
+    const pascalAgeFloat = currentYear - startYear
+    const mult = 20;
+    var pascalDif = (Date.now() - new Date(startYear, 0, 1)) / 1000 / 60 /60 / 24 / 365 * mult;
+
+    document.getElementById('year-title').textContent = `${currentYear} ЭТО ОЧЕРЕДНОЙ ГОД ПАСКАЛЬ ПОБЕДЫ`;
+    document.getElementById('year-number').textContent = currentYear;
+    document.getElementById('pascal-age').textContent = pascalDif.toFixed(10);
+  }
+
+  updatePascalInfo();
+
+  setInterval(updatePascalInfo, 1);
+
+  const audio = document.getElementById('audio');
+  const musicButton = document.getElementById('music-button');
+	var unholyGifs = document.querySelectorAll(".unholy-gif");
+  let danceInterval;
+
+
+  function startDancing() {
+        if (danceInterval) return; // Prevent multiple intervals
+	danceInterval = setInterval(() => {
+             unholyGifs.forEach(gif => {
+                gif.style.transition = "all 0.5s ease";
+                const randomX = Math.random() * (window.innerWidth - gif.offsetWidth);
+                gif.style.left = randomX + 'px';
+    
+    });
+        }, 500); // Move every 0.5 seconds
+    }
+
+    function stopDancing() {
+        clearInterval(danceInterval);
+        danceInterval = null;
+         unholyGifs.forEach(gif => {
+            gif.style.left = "10px"; // Or some original left position
+            gif.style.top = "auto"; // Or some original top position
+        });
+    }
+
+  musicButton.addEventListener('click', () => {
+      if (audio.paused) {
+          audio.play();
+          startDancing();
+      } else {
+         audio.pause();
+         audio.currentTime = 0;
+         stopDancing();
+      }
+  });
+    audio.addEventListener('ended', () => {
+            stopDancing();
+        });
+
+
+</script>
+
