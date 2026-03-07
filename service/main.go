@@ -59,6 +59,10 @@ func main() {
 						fmt.Fprintf(os.Stderr, "%v: %#+v\n", domain.Domain, status)
 					}()
 
+					if domain.Ignore {
+						return
+					}
+
 					ascii := domain.Domain
 					if !isASCII(ascii) {
 						conv, err := idna.Lookup.ToASCII(ascii)

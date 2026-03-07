@@ -19,6 +19,8 @@ type Website struct {
 type Domain struct {
 	Domain  string `yaml:"domain"`
 	Comment string `yaml:"comment"`
+
+	Ignore bool `yaml:"ignore"`
 }
 
 type Availability struct {
@@ -88,7 +90,7 @@ func GenerateWebsite(website Website, availability map[string]Availability) stri
 			),
 		)
 
-		if status := GenerateStatus(availability[website.Items[0].Domain]); status != "" {
+		if status := GenerateStatus(availability[website.Items[0].Domain]); !website.Items[0].Ignore && status != "" {
 			builder.WriteString(" (" + status + ")")
 		}
 
@@ -111,7 +113,7 @@ func GenerateWebsite(website Website, availability map[string]Availability) stri
 				),
 			)
 
-			if status := GenerateStatus(availability[domain.Domain]); status != "" {
+			if status := GenerateStatus(availability[domain.Domain]); !domain.Ignore && status != "" {
 				builder.WriteString(" (" + status + ")")
 			}
 
