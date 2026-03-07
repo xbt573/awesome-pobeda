@@ -1,0 +1,78 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-image: url("/static/media/osya.png");
+    background-repeat: space;
+    background-size: 180px auto;
+    background-color: #0f172a;
+
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.card {
+    background: rgba(15, 23, 42, 0.88);
+    padding: 2rem 3rem;
+    border-radius: 12px;
+
+    color: #e5e7eb;
+    max-width: 640px;
+
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+h1 {
+    margin-top: 0;
+    font-size: 2rem;
+    text-align: center;
+}
+
+ul {
+    margin: 1.5rem 0;
+    padding-left: 1.2rem;
+}
+
+li {
+    margin: 0.6rem 0;
+    line-height: 1.4;
+}
+
+a {
+    color: #38bdf8;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.footer-link {
+  margin-top: 1.2rem;
+  text-align: center;
+}
+
+.footer-link a {
+  color: #38bdf8;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.footer-link a:hover {
+  text-decoration: underline;
+}
+
+footer.copyright {
+  margin-top: 0.6rem;
+  font-size: 0.7rem;
+  opacity: 0.45;
+  text-align: left;
+}
