@@ -2,6 +2,9 @@ categories:
   - name: Языковая победа
     id: language
     items:
+      - name: C++
+        items:
+          - domain: плюсыпобеда.рф
       - name: Bash
         items:
           - domain: башпобеда.рф
@@ -21,12 +24,11 @@ categories:
         items:
           - domain: тайпскриптпобеда.рф
             ignore: true
-            comment: домен угнали, доступно по ссылке [тайпскрипт.победапобеда.рф](https://тайпскрипт.победапобеда.рф/)
-      - name: Elixir
+            comment: домен угнан
+          - domain: тайпскрипт.победапобеда.рф
+      - name: Pascal
         items:
-          - domain: эликсирпобеда.рф
-            ignore: true
-            comment: в процессе восстановления 
+          - domain: паскальпобеда.рф
       - name: Python
         items:
           - domain: питонпобеда.рф
@@ -34,7 +36,8 @@ categories:
         items:
           - domain: растпобеда.рф
             ignore: true
-            comment: домен угнали, прежняя версия будет доступна позже
+            comment: домен угнан
+          - domain: раст.победапобеда.рф
       - name: V
         items:
           - domain: випобеда.рф
@@ -65,9 +68,6 @@ categories:
       - name: Nix
         items:
           - domain: никспобеда.рф
-#  - name: СВО
-#    id: svo
-#    items:
   - name: Остальное
     id: other
     items:
@@ -77,6 +77,12 @@ categories:
       - name: Beget
         items:
           - domain: бегетпобеда.рф
+      - name: Магия по контракту
+        items:
+          - domain: магияпоконтракту.рф
+            ignore: true
+            comment: домен угнан
+          - domain: магияпоконтракту.победапобеда.рф
       - name: Navidrome
         items:
           - domain: навидромпобеда.рф
@@ -84,6 +90,11 @@ categories:
       - name: ESP32
         items:
           - domain: есп32победа.рф
+      - name: STM32
+        items:
+          - domain: стм32победа.рф
+            ignore: true
+          - domain: стм32.победапобеда.рф
       - name: МТУСИ
         items:
           - domain: мтусипобеда.рф
@@ -114,10 +125,6 @@ categories:
         - domain: сипобеда.рф
           ignore: true
           comment: исходный код утерян 
-      - name: C++
-        items:
-          - domain: плюсыпобеда.рф
-            comment: не резолвится
       - name: Java
         items:
           - domain: жавапобеда.рф
@@ -126,22 +133,14 @@ categories:
         items:
           - domain: котлинпобеда.рф
             comment: не резолвится
-      - name: Pascal
+      - name: Elixir
         items:
-          - domain: паскальпобеда.рф
-            comment: не резолвится
+          - domain: эликсирпобеда.рф
+            ignore: true
       - name: svo.ru
         items:
           - domain: svo.ru
             comment: не резолвится
-      - name: Магия по контракту
-        items:
-          - domain: магияпоконтракту.рф
-            comment: 127.0.0.1
-      - name: STM32
-        items:
-          - domain: стм32победа.рф
-            comment: домен закончился
       - name: Valorant
         items:
           - domain: валорантпобеда.рф
