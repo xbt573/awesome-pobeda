@@ -128,11 +128,11 @@ categories:
       - name: Java
         items:
           - domain: жавапобеда.рф
-            comment: не резолвится 
+            ignore: true
       - name: Kotlin
         items:
           - domain: котлинпобеда.рф
-            comment: не резолвится
+            ignore: true
       - name: Elixir
         items:
           - domain: эликсирпобеда.рф
@@ -140,10 +140,11 @@ categories:
       - name: svo.ru
         items:
           - domain: svo.ru
-            comment: не резолвится
+            ignore: true
       - name: Valorant
         items:
           - domain: валорантпобеда.рф
+            ignore: true
             comment: какая нахуй рукодельница?
       - name: RISC-V
         items:

@@ -7,6 +7,7 @@ import (
 	"os"
 	"sync"
 	"unicode"
+	"time"
 
 	"github.com/goccy/go-yaml"
 	"github.com/xbt573/awesome-pobeda/service/generate"
@@ -79,8 +80,13 @@ func main() {
 					}
 					status.Resolved = true
 
-					resp, err := http.Get("http://" + domain.Domain)
+					client := http.Client{
+						Timeout: 30 * time.Second,
+					}
+
+					resp, err := client.Get("http://" + ascii)
 					if err != nil {
+						fmt.Println(err)
 						return
 					}
 					resp.Body.Close()
