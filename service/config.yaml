@@ -68,6 +68,9 @@ categories:
       - name: Nix
         items:
           - domain: никспобеда.рф
+      - name: Kali
+        items:
+          - domain: калипобеда.рф
   - name: Остальное
     id: other
     items:
