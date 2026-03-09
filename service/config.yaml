@@ -86,6 +86,9 @@ categories:
             ignore: true
             comment: домен угнан
           - domain: магияпоконтракту.победапобеда.рф
+      - name: Интернет
+        items:
+          - domain: интернетпобеда.рф
       - name: Navidrome
         items:
           - domain: навидромпобеда.рф
