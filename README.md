@@ -1,4 +1,3 @@
-Get "https://xn--80abjdnmfrkjvw.xn--p1ai/": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
 # <a name="start"></a>awesome-победа.рф (<a href="https://победапобеда.рф">победапобеда.рф</a>)
 
 Список победных сайтов на просторах рунета.
@@ -37,7 +36,7 @@ Get "https://xn--80abjdnmfrkjvw.xn--p1ai/": context deadline exceeded (Client.Ti
 
 ## <a name="linux"></a>Линуксовая победа
 **[`^        назад        ^`](#start)**
-- Linux — [линукспобеда.рф](http://линукспобеда.рф) (not reachable)
+- Linux — [линукспобеда.рф](http://линукспобеда.рф)
 - Arch Linux — [арчпобеда.рф](http://арчпобеда.рф)
 - Gentoo Linux — [гентупобеда.рф](http://гентупобеда.рф)
 - Yocto Linux — [йоктопобеда.рф](http://йоктопобеда.рф)
