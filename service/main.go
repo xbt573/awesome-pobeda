@@ -86,7 +86,6 @@ func main() {
 
 					resp, err := client.Get("http://" + ascii)
 					if err != nil {
-						fmt.Println(err)
 						return
 					}
 					resp.Body.Close()
