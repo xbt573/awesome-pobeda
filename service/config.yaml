@@ -101,6 +101,9 @@ categories:
           - domain: стм32победа.рф
             ignore: true
           - domain: стм32.победапобеда.рф
+      - name: МИРЭА
+        items:
+          - domain: мирэапобеда.рф
       - name: МТУСИ
         items:
           - domain: мтусипобеда.рф
