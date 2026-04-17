@@ -36,7 +36,7 @@
 
 ## <a name="linux"></a>Линуксовая победа
 **[`^        назад        ^`](#start)**
-- Linux — [линукспобеда.рф](http://линукспобеда.рф)
+- Linux — [линукспобеда.рф](http://линукспобеда.рф) (non-successful exit code)
 - Arch Linux — [арчпобеда.рф](http://арчпобеда.рф)
 - Gentoo Linux — [гентупобеда.рф](http://гентупобеда.рф)
 - Yocto Linux — [йоктопобеда.рф](http://йоктопобеда.рф) (not resolved)
