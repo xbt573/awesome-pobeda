@@ -126,6 +126,9 @@ categories:
       - name: Go
         items:
           - domain: гопоражение.рф
+      - name: Java
+        items:
+          - domain: джавапоражение.рф
   - name: Кладбище побед
     id: graveyard
     items:
