@@ -117,6 +117,9 @@ categories:
         items:
           - domain: макспобеда.рф
             comment: работает даже на xbt573/awesome-pobeda
+      - name: Онидзука
+        items:
+          - domain: онидзукапобеда.рф
   - name: Поражения
     id: loses
     items:

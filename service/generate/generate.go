@@ -79,9 +79,14 @@ func GenerateCategory(category Category, availability map[string]Availability) s
 }
 
 func GenerateWebsite(website Website, availability map[string]Availability) string {
+	if website.Name == "" && len(website.Items) != 0 {
+		website.Name = website.Items[0].Domain
+	}
+
 	builder := strings.Builder{}
 
 	if len(website.Items) == 1 {
+
 		builder.WriteString(
 			fmt.Sprintf(
 				"- %v — [%v](http://%v)",
