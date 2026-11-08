@@ -50,6 +50,9 @@ categories:
       - name: Haskell
         items:
           - domain: хаскеллпобеда.рф
+      - name: Zig
+        items:
+          - domain: зигпобеда.рф
   - name: Линуксовая победа
     id: linux
     items:
